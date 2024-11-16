@@ -1,0 +1,53 @@
+<h2>Add sleep record</h2>
+<div class="form">
+  <form class="add-form" [formGroup]="sleepForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-field">
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="startDatePicker" formControlName="sleepStartDate">
+        <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form-field">
+      <mat-form-field>
+        <mat-label>Sleep start</mat-label>
+        <input matInput [format]="24"  [ngxMatTimepicker]="startTimePicker" formControlName="sleepStartTime">
+        <ngx-mat-timepicker #startTimePicker></ngx-mat-timepicker>
+      </mat-form-field>
+    </div>
+  
+    <div class="form-field">
+      <mat-form-field>
+        <mat-label>Sleep start date</mat-label>
+        <input matInput [matDatepicker]="endDatePicker" formControlName="sleepEndDate">
+        <mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form-field">
+      <mat-form-field>
+        <mat-label>Sleep end</mat-label>
+        <input matInput [format]="24" [ngxMatTimepicker]="endTimePicker" formControlName="sleepEndTime">
+        <ngx-mat-timepicker #endTimePicker></ngx-mat-timepicker>
+      </mat-form-field>
+    </div>
+    
+
+
+
+    <button type="submit" class="submit-button" mat-stroked-button >Submit</button>
+    <div *ngIf="sleepForm.errors?.['endDateEarlierThanStartDate']">
+      <mat-error>End date cannot be earlier than the start date!</mat-error> 
+    </div>
+    <div *ngIf="sleepForm.errors?.['endTimeEarlierThanStartTime']">
+      <mat-error>End time cannot be earlier than the start time!</mat-error>
+    </div>
+  </form>
+
+
+</div>
+
