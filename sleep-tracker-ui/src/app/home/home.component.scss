@@ -19,3 +19,14 @@ h1 {
 div.div-btn {
   float: right;
 }
+
+.selected {
+  background-color: rgba(0, 123, 255, 0.2); /* Highlight the row with a background color */
+  cursor: pointer; /* Indicate that the row is clickable */
+}
+.selected:hover {
+  background-color: rgba(0, 123, 255, 0.3);
+}
+.custom-row {
+  cursor: pointer;
+}

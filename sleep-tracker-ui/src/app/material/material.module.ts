@@ -9,6 +9,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule} from '@angular/material/paginator';
 
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -19,7 +20,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
     MatCardModule,
     MatSlideToggleModule,
     MatTableModule,
-    MatPaginatorModule,
+    MatPaginatorModule
     ],
   exports: [
     MatButtonModule,
@@ -29,7 +30,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
     MatCardModule,
     MatSlideToggleModule,
     MatTableModule,
-    MatPaginatorModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }

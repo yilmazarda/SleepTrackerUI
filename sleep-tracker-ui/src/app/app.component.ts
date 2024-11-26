@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterModule } from '@angular/router';
+import { RouterOutlet, RouterModule, Router} from '@angular/router';
 import { MaterialModule } from './material/material.module';
 
 
@@ -14,4 +14,13 @@ import { MaterialModule } from './material/material.module';
 })
 export class AppComponent {
   title = 'sleep-tracker-ui';
+  
+  constructor(private router:Router) {}
+
+  navigateToHome() {
+    this.router.navigate(['/home']).then(() => {
+      window.location.reload(); // Refresh the page after navigation
+    });
+  }
 }
+
