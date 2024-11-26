@@ -6,6 +6,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-sleep',
@@ -24,7 +25,7 @@ export class AddSleepComponent {
   sleepForm!: FormGroup;
   errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.InitiateForm();
   }
 
@@ -118,6 +119,7 @@ export class AddSleepComponent {
         this.errorMessage = 'Failed to save sleep record.'
       }
     )
+    this.navigateToHome();
   }
 
   parseTimeToMinutes(time: string): number {
@@ -125,6 +127,11 @@ export class AddSleepComponent {
     return hours * 60 + minutes;
   }
   
+  navigateToHome() {
+    this.router.navigate(['/home']).then(() => {
+      window.location.reload(); // Refresh the page after navigation
+    });
+  }
 }
 
 

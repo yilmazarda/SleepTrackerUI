@@ -17,6 +17,7 @@ export class HomeComponent implements AfterViewInit {
   public apiUrl = "http://localhost:5010/api";
   sleepData = new MatTableDataSource<any>();
   public displayedColumns: string[] = ['id', 'start', 'end', 'duration'];
+  selectedRecord: any = null;
   
   @ViewChild(MatPaginator) paginator !: MatPaginator;
 
@@ -35,5 +36,20 @@ export class HomeComponent implements AfterViewInit {
       console.table(res);
       this.sleepData.data = res;
     });
+  }
+
+  selectRecord(record: any) {
+    // Toggle selection: If the same record is clicked, deselect it
+    this.selectedRecord = this.selectedRecord?.id === record.id ? null : record;
+  }
+
+  deleteRecord() {
+    if (this.selectedRecord) {
+      // Add your delete logic here, for example:
+      this.http.delete(`${this.apiUrl}/Sleep/${this.selectedRecord.id}`).subscribe(() => {
+        this.fetchData(); // Refresh the data after deletion
+        this.selectedRecord = null; // Deselect the record
+      });
+    }
   }
 }

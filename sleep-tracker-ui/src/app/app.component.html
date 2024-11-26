@@ -1,11 +1,11 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+<mat-toolbar class="navbar">
+  <button (click)="navigateToHome()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>home</mat-icon>
   </button>
   <span class="title">SleepTracker</span>
   <span class="example-spacer"></span>
-  <button [routerLink]="'add'" class="add-entry-button" mat-raised-button color="ancien">Add sleep entry</button>
-  <mat-slide-toggle></mat-slide-toggle>
+  <button [routerLink]="'record'" class="add-entry-button" mat-raised-button>Add record by recording</button>
+  <button [routerLink]="'add'" class="add-entry-button" mat-raised-button>Add record with form</button>
 </mat-toolbar>
 
 <div class=container>

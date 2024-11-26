@@ -1,0 +1,7 @@
+<h2>Add Sleep Record</h2>
+<div>
+  <p>Time Elapsed: {{ elapsedTime }}</p>
+
+  <button id="startBtn" mat-flat-button color="primary" (click)="startRecording()">Start Recording</button>
+  <button id="stopBtn" mat-flat-button color="warn" (click)="stopRecording()" [disabled]="!startTime">Stop</button>
+</div>
